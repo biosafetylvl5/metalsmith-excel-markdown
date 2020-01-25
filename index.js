@@ -47,8 +47,7 @@ var excelTables = function(config) {
       var qry = makeQry(config.folder, file.table, file.select, file.additional);
       alasql(qry,[],function(data){
         var strTbl = makeArray(data);
-        file.contents += '\n\n' + strTbl;
-        //console.log(file.contents);
+        file.contents = Buffer.concat([file.contents, Buffer.from('\n\n' + strTbl)]);
         alldone();
       });
     };
