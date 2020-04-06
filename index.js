@@ -35,7 +35,6 @@ var excelTables = function(config) {
     var alldone = (function (){
         var count = 0;
         return function alldone() {
-          console.log(count);
           if (++count >= filenames.length) {
             done();
           }
